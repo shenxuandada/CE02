@@ -2,7 +2,6 @@
 
 import datetime
 from django.db import migrations, models
-from django.utils.timezone import utc
 
 
 class Migration(migrations.Migration):
@@ -15,7 +14,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='post',
             name='image',
-            field=models.ImageField(default=datetime.datetime(2024, 6, 2, 9, 20, 17, 612151, tzinfo=utc), upload_to='intruder_image/%Y/%m/%d/'),
+            field=models.ImageField(
+                default=datetime.datetime(2024, 6, 2, 9, 20, 17, 612151, tzinfo=datetime.timezone.utc),
+                upload_to='intruder_image/%Y/%m/%d/'
+            ),
             preserve_default=False,
         ),
     ]
